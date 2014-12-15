@@ -6,7 +6,7 @@ class DLDA:
                 self.cov1 =[]
                 self.N0 = 0
                 self.N1 = 0
-        def DLDA_training(slef,training_data,N):
+        def training(slef,training_data,N):
                 self.mean0= [0]*N#N is the number of features we use
                 self.mean1 =[0]*N
                 self.N1 = 0
@@ -38,8 +38,8 @@ class DLDA:
                 for i in range(0,len(self.cov1)):
                         self.cov1[i] = self.cov1[i]/float(self.N1)
                 self.N0=N_sample-self.N1
-                return 1   
-        def DLDA_testing(self,testing_data):
+                return 1 
+        def testing(self,testing_data):
                 sigma= [0]*len(self.mean0)
                 for i in range(0,len(self.mean0)):
                         sigma[i]=((self.N0-1)*self.cov0[i]+(self.N1-1)*self.cov1[i])/(self.N0+self.N1-2)
